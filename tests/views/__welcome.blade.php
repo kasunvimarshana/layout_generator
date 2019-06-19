@@ -90,7 +90,7 @@
             <!-- ========================================================================= -->
             
             <!-- ========================================================================= -->
-            <!-- script>
+            <script>
                 var width = window.innerWidth;
                 var height = window.innerHeight;
 
@@ -101,8 +101,6 @@
                 });
 
                 var layer = new Konva.Layer();
-                
-                //stage.add(layer);
 
                 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
 
@@ -167,198 +165,6 @@
                     false
                 );*/
                 /////////////////////////////////////////
-            </script -->
-            <!-- ========================================================================= -->
-            
-            <!-- ========================================================================= -->
-            <!-- script>
-              var width = window.innerWidth;
-              var height = window.innerHeight;
-
-              var stage = new Konva.Stage({
-                container: 'container',
-                width: width,
-                height: height
-              });
-
-              var layer = new Konva.Layer();
-              stage.add(layer);
-
-              var rect = new Konva.Rect({
-                x: 160,
-                y: 60,
-                width: 100,
-                height: 90,
-                fill: 'red',
-                name: 'rect',
-                stroke: 'black',
-                draggable: true
-              });
-              layer.add(rect);
-
-              var MAX_WIDTH = 200;
-              // create new transformer
-              var tr = new Konva.Transformer({
-                boundBoxFunc: function(oldBoundBox, newBoundBox) {
-                  // "boundBox" is an object with
-                  // x, y, width, height and rotation properties
-                  // transformer tool will try to fit node into that box
-                  // "width" property here is a visible width of the object
-                  // so it equals to rect.width() * rect.scaleX()
-
-                  // the logic is simple, if new width is too big
-                  // we will return previous state
-                  if (Math.abs(newBoundBox.width) > MAX_WIDTH) {
-                    return oldBoundBox;
-                  }
-
-                  return newBoundBox;
-                }
-              });
-              layer.add(tr);
-              tr.attachTo(rect);
-              layer.draw();
-            </script -->
-            <!-- ========================================================================= -->
-            
-            <!-- ========================================================================= -->
-            <script>
-              var width = window.innerWidth;
-              var height = window.innerHeight;
-
-              var stage = new Konva.Stage({
-                container: 'container',
-                width: width,
-                height: height
-              });
-
-              var layer = new Konva.Layer();
-              stage.add(layer);
-
-              var rect = new Konva.Rect({
-                x: 160,
-                y: 60,
-                width: 100,
-                height: 90,
-                fill: 'red',
-                name: 'rect',
-                stroke: 'black',
-                draggable: true
-              });
-              layer.add(rect);
-
-              var MAX_WIDTH = 200;
-              // create new transformer
-              var tr = new Konva.Transformer({
-                keepRatio: true,
-                boundBoxFunc: function(oldBoundBox, newBoundBox) {
-                  // "boundBox" is an object with
-                  // x, y, width, height and rotation properties
-                  // transformer tool will try to fit node into that box
-                  // "width" property here is a visible width of the object
-                  // so it equals to rect.width() * rect.scaleX()
-
-                  // the logic is simple, if new width is too big
-                  // we will return previous state
-                  if (Math.abs(newBoundBox.width) > MAX_WIDTH) {
-                    return oldBoundBox;
-                  }
-
-                  return newBoundBox;
-                }
-              });
-              layer.add(tr);
-              tr.attachTo(rect);
-              layer.draw();
-                
-            /////////////////////////////////////////////////////////////////////////////////////
-            /*var button = new Konva.Group({
-                x: stage.width() / 2,
-                y: stage.height() / 2
-            });
-
-            var offset = 10;
-            var text = new Konva.Text({
-                x: offset,
-                y: offset,
-                text: 'press me!',
-                // as we don't really need text on hit graph we can set:
-                listening: false
-            });
-            var rect = new Konva.Rect({
-                width: text.width() + offset * 2,
-                height: text.height() + offset * 2,
-                fill: 'grey',
-                shadowColor: 'black'
-            });
-            button.add(rect, text);
-
-            button.on('click tap', function() {
-                alert('button clicked');
-            });
-
-            layer.add(button);
-            //stage.add(layer);*/
-            /////////////////////////////////////////////////////////////////////////////////////
-                
-              
-            var text = new Konva.Text({
-                x: 5,
-                y: 5
-            });
-            layer.add(text);
-            updateText();
-                
-            rect.on('transformstart', function() {
-                console.log('transform start');
-            });
-
-            rect.on('dragmove', function() {
-                updateText();
-            });
-            rect.on('transform', function() {
-                updateText();
-                console.log('transform');
-            });
-
-            rect.on('transformend', function() {
-                console.log('transform end');
-            });
-
-            function updateText() {
-                var lines = [
-                    'x: ' + rect.x(),
-                    'y: ' + rect.y(),
-                    'rotation: ' + rect.rotation(),
-                    'width: ' + rect.width(),
-                    'height: ' + rect.height(),
-                    'scaleX: ' + rect.scaleX(),
-                    'scaleY: ' + rect.scaleY()
-                ];
-                text.text(lines.join('\n'));
-                layer.batchDraw();
-            }
-            
-            /*
-            function downloadURI(uri, name) {
-                var link = document.createElement('a');
-                link.download = name;
-                link.href = uri;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                delete link;
-            }
-                
-            document.getElementById('save').addEventListener(
-                'click',
-                function() {
-                    var dataURL = stage.toDataURL({ pixelRatio: 3 });
-                    downloadURI(dataURL, 'stage.png');
-                },
-                false
-            );
-            */
             </script>
             <!-- ========================================================================= -->
             
