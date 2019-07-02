@@ -17,4 +17,10 @@ class Operation extends Model
     protected $fillable = array('is_visible', 'name', 'display_name', 'is_main_operation', 'order', 'description');
     //protected $hidden = array();
     //protected $casts = array();
+    
+    //one to many
+    public function operationBreakdownWorks(){
+        return $this->hasMany('App\OperationBreakdownWork', 'operation_pk', 'name');
+    }
+    
 }

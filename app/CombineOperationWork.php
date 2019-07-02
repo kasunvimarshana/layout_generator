@@ -14,8 +14,13 @@ class CombineOperationWork extends Model
     //protected $connection = "mysql";
     //$this->setConnection("mysql");
     
-    //protected $fillable = array();
+    protected $fillable = array('is_visible', 'combine_operation_id', 'operation_breakdown_work_id', 'combine_value');
     //protected $hidden = array();
     //protected $casts = array();
+    
+    //one to many (inverse)
+    public function operationBreakdownWork(){
+        return $this->belongsTo('App\OperationBreakdownWork', 'operation_breakdown_work_id', 'id');
+    }
     
 }

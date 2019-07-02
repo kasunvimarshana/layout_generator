@@ -17,4 +17,15 @@ class Line extends Model
     protected $fillable = array('is_visible', 'name', 'display_name', 'colour', 'width', 'height', 'description');
     //protected $hidden = array();
     //protected $casts = array();
+    
+    //many to many
+    public function machineLayouts(){
+        return $this->morphMany('App\MachineLayout', 'layoutable');
+    }
+    
+    //one to many
+    public function operationBreakdowns(){
+        return $this->hasMany('App\OperationBreakdown', 'line_pk', 'name');
+    }
+    
 }

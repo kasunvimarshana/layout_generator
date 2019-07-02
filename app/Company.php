@@ -28,4 +28,9 @@ class Company extends Model
         return $this->belongsTo('App\HoldingCompany', 'holding_company_pk', 'name');
     }
     
+    //one to many
+    public function operationBreakdowns(){
+        return $this->hasMany('App\OperationBreakdown', 'company_pk', 'name');
+    }
+    
 }

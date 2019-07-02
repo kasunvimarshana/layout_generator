@@ -17,4 +17,10 @@ class Factory extends Model
     protected $fillable = array('is_visible', 'name', 'display_name');
     //protected $hidden = array();
     //protected $casts = array();
+    
+    //one to many
+    public function operationBreakdowns(){
+        return $this->hasMany('App\OperationBreakdown', 'factory_pk', 'name');
+    }
+    
 }
