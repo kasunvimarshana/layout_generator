@@ -97,40 +97,12 @@
                 var stage = new Konva.Stage({
                     container: 'container',
                     width: width,
-                    height: height,
-                    scale: {
-                        x: 1, 
-                        y: 1
-                    }
+                    height: height
                 });
-                
-                stage.getContainer().style.backgroundColor = 'red';
 
-                var layer = new Konva.Layer({
-                    scale: {
-                        x: 0.3, 
-                        y: 0.3
-                    }
-                });
+                var layer = new Konva.Layer();
                 
                 //stage.add(layer);
-                
-                //////////////////////////////////////////////////////////////////////////////////////////////////
-                var boxObjCanvas = new Konva.Rect({
-                        x: (width / 2),
-                        y: (height / 2),
-                        fill: 'rgba(100, 50, 200, 0.6)',
-                        stroke: 'black',
-                        strokeWidth: 4,
-                        draggable: true,
-                        width: 900,
-                        height: 900
-                    });
-                
-                layer.add(boxObjCanvas);
-                
-                boxObjCanvas.toCanvas();
-                //////////////////////////////////////////////////////////////////////////////////////////////////
 
                 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
 
