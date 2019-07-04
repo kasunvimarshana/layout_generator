@@ -108,8 +108,8 @@
 
                 var layer = new Konva.Layer({
                     scale: {
-                        x: 0.3, 
-                        y: 0.3
+                        x: 3, 
+                        y: 3
                     }
                 });
                 
@@ -129,7 +129,7 @@
                 
                 layer.add(boxObjCanvas);
                 
-                boxObjCanvas.toCanvas();
+                //boxObjCanvas.toCanvas();
                 //////////////////////////////////////////////////////////////////////////////////////////////////
 
                 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
