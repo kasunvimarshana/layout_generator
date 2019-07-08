@@ -14,6 +14,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    // custom data
+    'display_name' => env('APP_DISPLAY_NAME', 'Application'),
 
     /*
     |--------------------------------------------------------------------------

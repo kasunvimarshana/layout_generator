@@ -14,7 +14,7 @@ class MachineLayout extends Model
     //protected $connection = "mysql";
     //$this->setConnection("mysql");
     
-    protected $fillable = array('is_visible', 'operation_breakdown_id', 'layoutable_type', 'layoutable_id', 'position_x', 'position_y', 'position_z', 'scale_x', 'scale_y', 'description');
+    protected $fillable = array('is_visible', 'operation_breakdown_id', 'layoutable_type', 'layoutable_id', 'position_x', 'position_y', 'position_z', 'scale_x', 'scale_y', 'description', 'colour', 'width', 'height');
     //protected $hidden = array();
     //protected $casts = array();
     

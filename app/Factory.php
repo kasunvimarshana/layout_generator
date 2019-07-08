@@ -14,7 +14,7 @@ class Factory extends Model
     //protected $connection = "mysql";
     //$this->setConnection("mysql");
     
-    protected $fillable = array('is_visible', 'name', 'display_name');
+    protected $fillable = array('is_visible', 'name', 'display_name', 'colour');
     //protected $hidden = array();
     //protected $casts = array();
     

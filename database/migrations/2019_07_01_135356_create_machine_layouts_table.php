@@ -27,6 +27,9 @@ class CreateMachineLayoutsTable extends Migration
             $table->double('scale_x')->default(0)->nullable();
             $table->double('scale_y')->default(0)->nullable();
             $table->text('description')->nullable();
+            $table->string('colour')->index()->nullable();
+            $table->decimal('width')->default(0)->nullable();
+            $table->decimal('height')->default(0)->nullable();
             
             $table->foreign('operation_breakdown_id')->references('id')->on('operation_breakdowns')->onUpdate('cascade');
             //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
