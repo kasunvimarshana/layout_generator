@@ -65,7 +65,9 @@ class LineController extends Controller
             'is_visible' => true,
             'name' => urldecode(Input::get('name')),
             'display_name' => urldecode(Input::get('display_name')),
-            'colour' => urldecode(Input::get('colour'))
+            'colour' => urldecode(Input::get('colour')),
+            'width' => urldecode(Input::get('width')),
+            'height' => urldecode(Input::get('height'))
         );
 
         // Start transaction!
@@ -145,7 +147,8 @@ class LineController extends Controller
         $lineData = array(
             'name' => urldecode(Input::get('name')),
             'display_name' => urldecode(Input::get('display_name')),
-            'colour' => urldecode(Input::get('colour'))
+            'colour' => urldecode(Input::get('colour')),
+            'height' => urldecode(Input::get('height'))
         );
 
         // Start transaction!

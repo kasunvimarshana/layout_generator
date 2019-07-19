@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use Illuminate\Support\Facades\DB;
+
 class CreateOperationsTable extends Migration
 {
     /**
@@ -32,6 +34,8 @@ class CreateOperationsTable extends Migration
             
             //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
         });
+        
+        DB::statement('ALTER TABLE operations MODIFY COLUMN id INTEGER NOT NULL UNIQUE AUTO_INCREMENT;');
     }
 
     /**

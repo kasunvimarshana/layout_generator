@@ -14,12 +14,16 @@ class LDAPModel extends Model
     
     //protected $bind_rdn = "scan@brandix.com";
     //protected $bind_password = "Brdx@9000";
-    protected $bind_rdn = "kasunv@brandix.com";
-    protected $bind_password = "Brdx@90000";
+    //protected $bind_rdn = "kasunv@brandix.com";
+    //protected $bind_password = "Brdx@90000";
+    protected $bind_rdn;
+    protected $bind_password;
     protected $ldap_control_paged_result_count = 10;
     
     function __construct() {
         //parent::__construct();
+        $this->bind_rdn = config('app.mail_user_name');
+        $this->bind_password = config('app.mail_password');
         $this->doConnect()->doBind();
     }
     function __destruct() {

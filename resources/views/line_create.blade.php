@@ -42,14 +42,36 @@
                             <div class="col-sm-12">
                                 <!-- form -->
                                 <!-- urlencode(val) -->
-                                <form action="{!! route('company.store') !!}" method="POST" class="col-sm-8" autocomplete="off" id="form1" enctype="multipart/form-data">
+                                <form action="{!! route('line.store') !!}" method="POST" class="col-sm-8" autocomplete="off" id="form1" enctype="multipart/form-data">
                                     @csrf
                                     <!-- form-group -->
                                     <div class="form-group col-sm-12">
-                                        <label for="title" class="col-sm-2 control-label">Name</label>
+                                        <label for="name" class="col-sm-2 control-label">Name</label>
                                         <div class="col-sm-10">
                                             <!-- p class="form-control-static"></p -->
                                             <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ old('name') }}" required/>
+                                        </div>
+                                        <!-- span id="form-control" class="help-block"></span -->
+                                    </div>
+                                    <!-- /.form-group -->
+                                    
+                                    <!-- form-group -->
+                                    <div class="form-group col-sm-12">
+                                        <label for="width" class="col-sm-2 control-label">Width (m)</label>
+                                        <div class="col-sm-10">
+                                            <!-- p class="form-control-static"></p -->
+                                            <input type="number" class="form-control" id="width" name="width" placeholder="Width (m)" value="{{ old('width') }}" min="0.0" step="any" required/>
+                                        </div>
+                                        <!-- span id="form-control" class="help-block"></span -->
+                                    </div>
+                                    <!-- /.form-group -->
+                                    
+                                    <!-- form-group -->
+                                    <div class="form-group col-sm-12">
+                                        <label for="height" class="col-sm-2 control-label">Height (m)</label>
+                                        <div class="col-sm-10">
+                                            <!-- p class="form-control-static"></p -->
+                                            <input type="number" class="form-control" id="height" name="height" placeholder="Height (m)" value="{{ old('height') }}" min="0.0" step="any" required/>
                                         </div>
                                         <!-- span id="form-control" class="help-block"></span -->
                                     </div>
@@ -109,7 +131,7 @@
                             <div class="col-sm-12">
                                 <!-- table -->
                                 <!-- class="table table-striped table-bordered dt-responsive nowrap" -->
-                                <table id="companyDataTable" class="table table-bordered" style="width:100%" width="100%" cellspacing="0" border="1" align="left"></table>
+                                <table id="lineDataTable" class="table table-bordered" style="width:100%" width="100%" cellspacing="0" border="1" align="left"></table>
                                 <!-- /.table -->
                             </div>
                             <!-- /.col -->
@@ -145,7 +167,7 @@
     <!-- ColourPicker -->
     <script src="{{ asset('node_modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
 
-    @includeIf('partials.company_data_table_created', array('dataTableId' => 'companyDataTable'))
+    @includeIf('partials.line_data_table_created', array('dataTableId' => 'lineDataTable'))
     <script>
     $(function() {
         "use strict";
@@ -170,6 +192,8 @@
             var name = form.find('#name');
             var colour_input_group = form.find('#colour_input_group');
             var colour = form.find('#colour');
+            var width = form.find('#width');
+            var height = form.find('#height');
             var submit = form.find('#submit');
             submit.attr("disabled", true);
             var formdata = new FormData( this );
@@ -196,9 +220,11 @@
                         'timer': data.timer,
                         'showConfirmButton': false
                     });
-                    $('#companyDataTable').DataTable().ajax.reload( null, false ); // user paging is not reset on reload
+                    $('#lineDataTable').DataTable().ajax.reload( null, false ); // user paging is not reset on reload
                     name.val(null);
                     colour_input_group.colorpicker('setValue', defaultColour_1);
+                    width.val(0);
+                    height.val(0);
                     // scroll top
                     $('html, body').animate({scrollTop:0}, 'slow');
                 })

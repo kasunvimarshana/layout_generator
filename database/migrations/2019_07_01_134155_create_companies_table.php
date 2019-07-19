@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use Illuminate\Support\Facades\DB;
+
 class CreateCompaniesTable extends Migration
 {
     /**
@@ -30,6 +32,8 @@ class CreateCompaniesTable extends Migration
             
             //$table->foreign('status_id')->references('id')->on('statuses')->onUpdate('cascade');
         });
+        
+        DB::statement('ALTER TABLE companies MODIFY COLUMN id INTEGER NOT NULL UNIQUE AUTO_INCREMENT;');
     }
 
     /**

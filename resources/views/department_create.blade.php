@@ -46,7 +46,7 @@
                                     @csrf
                                     <!-- form-group -->
                                     <div class="form-group col-sm-12">
-                                        <label for="title" class="col-sm-2 control-label">Name</label>
+                                        <label for="name" class="col-sm-2 control-label">Name</label>
                                         <div class="col-sm-10">
                                             <!-- p class="form-control-static"></p -->
                                             <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ old('name') }}" required/>

@@ -24,7 +24,7 @@
             <div id="collapseOneParent" class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#collapseOneParent" href="#collapseOne"><span class="glyphicon glyphicon-plus"></span> Edit Company</a>
+                        <a data-toggle="collapse" data-parent="#collapseOneParent" href="#collapseOne"><span class="glyphicon glyphicon-plus"></span> Edit Line</a>
                     </h4>
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse in">
@@ -37,14 +37,36 @@
                             <div class="col-sm-12">
                                 <!-- form -->
                                 <!-- urlencode(val) -->
-                                <form action="{!! route('company.update', ['company' => $company->name]) !!}" method="POST" class="col-sm-8" autocomplete="off" id="form1" enctype="multipart/form-data">
+                                <form action="{!! route('line.update', ['line' => $line->name]) !!}" method="POST" class="col-sm-8" autocomplete="off" id="form1" enctype="multipart/form-data">
                                     @csrf
                                     <!-- form-group -->
                                     <div class="form-group col-sm-12">
                                         <label for="name" class="col-sm-2 control-label">Name</label>
                                         <div class="col-sm-10">
                                             <!-- p class="form-control-static"></p -->
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ $company->name }}" required/>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ $line->name }}" required/>
+                                        </div>
+                                        <!-- span id="form-control" class="help-block"></span -->
+                                    </div>
+                                    <!-- /.form-group -->
+                                    
+                                    <!-- form-group -->
+                                    <div class="form-group col-sm-12">
+                                        <label for="width" class="col-sm-2 control-label">Width (m)</label>
+                                        <div class="col-sm-10">
+                                            <!-- p class="form-control-static"></p -->
+                                            <input type="number" class="form-control" id="width" name="width" placeholder="Width (m)" value="{{ $line->width }}" min="0.0" step="any" required/>
+                                        </div>
+                                        <!-- span id="form-control" class="help-block"></span -->
+                                    </div>
+                                    <!-- /.form-group -->
+                                    
+                                    <!-- form-group -->
+                                    <div class="form-group col-sm-12">
+                                        <label for="height" class="col-sm-2 control-label">Height (m)</label>
+                                        <div class="col-sm-10">
+                                            <!-- p class="form-control-static"></p -->
+                                            <input type="number" class="form-control" id="height" name="height" placeholder="Height (m)" value="{{ $line->height }}" min="0.0" step="any" required/>
                                         </div>
                                         <!-- span id="form-control" class="help-block"></span -->
                                     </div>
@@ -56,7 +78,7 @@
                                         <div class="col-sm-10">
                                             <div id="colour_input_group" class="input-group colorpicker-component">
                                                 <!-- p class="form-control-static"></p -->
-                                                <input type="text" class="form-control" id="colour" name="colour" placeholder="Colour" value="{{ $company->colour }}" required/>
+                                                <input type="text" class="form-control" id="colour" name="colour" placeholder="Colour" value="{{ $line->colour }}" required/>
                                                 <span class="input-group-addon"><i></i></span>
                                             </div>
                                         </div>
@@ -117,8 +139,8 @@
         
         $("#colour_input_group").colorpicker('setValue', defaultColour_1);
         //$("#colour_input_group").colorpicker('setValue', "{!! old('colour') !!}");
-        @isset($company->colour)
-            $("#colour_input_group").colorpicker('setValue', "{{ $company->colour }}");
+        @isset($line->colour)
+            $("#colour_input_group").colorpicker('setValue', "{{ $line->colour }}");
         @endisset
     });
     </script>
